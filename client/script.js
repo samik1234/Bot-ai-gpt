@@ -41,19 +41,20 @@ function generateUniqueId() {
 
 function chatStripe(isAi, value, uniqueId) {
   return `
-        <div class="wrapper ${isAi && "ai"}">
-            <div class="chat">
-                <div class="profile">
-                    <img 
-                      src="${isAi ? bot : user}"
-                      alt="${isAi ? "bot" : "user"}" 
-                    />
-                </div>
-                <div class="message" id=${uniqueId}>${value}</div>
-            </div>
-        </div>
-    `;
+      <div class="wrapper ${isAi && "ai"}">
+          <div class="chat">
+              <div class="profile">
+                  <img 
+                    src=${isAi ? bot : user} 
+                    alt="${isAi ? "bot" : "user"}" 
+                  />
+              </div>
+              <div class="message" id=${uniqueId}>${value}</div>
+          </div>
+      </div>
+  `;
 }
+
 const handleSubmit = async (e) => {
   e.preventDefault();
 
@@ -81,8 +82,8 @@ const handleSubmit = async (e) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      prompt: data.get("prompt"),
-    }),
+      prompt: data.get("prompt")
+    })
   });
 
   clearInterval(loadInterval);
